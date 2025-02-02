@@ -50,6 +50,7 @@ void f()
 
 int main()
 {
+    std::unique_ptr<int> u;
     int i = 0;
     while (i < 10)
     {
