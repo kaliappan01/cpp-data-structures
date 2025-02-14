@@ -85,32 +85,37 @@ int BinaryHeap::removeMin()
     arr.pop_back();
     size--;
     heapify(0);
-    return minV; 
+    return minV;
 }
 
-bool BinaryHeap::insert(int val){
+bool BinaryHeap::insert(int val)
+{
     arr.push_back(val);
     size = arr.size();
-    int idx = size-1;
-    while(idx>0 && arr[parent(idx)] > arr[idx]){
+    int idx = size - 1;
+    while (idx > 0 && arr[parent(idx)] > arr[idx])
+    {
         swap(arr[parent(idx)], arr[idx]);
         idx = parent(idx);
     }
     return true;
 }
-void BinaryHeap::printHeap() {
-    for(int i: arr){
-        std::cout<<i<<" ";
+void BinaryHeap::printHeap()
+{
+    for (int i : arr)
+    {
+        std::cout << i << " ";
     }
 }
 
-int main() {
+int main()
+{
     BinaryHeap binHeap;
     binHeap.insert(1);
     binHeap.insert(5);
     binHeap.insert(0);
-    std::cout<<"min val "<<binHeap.getMin()<<std::endl;
+    std::cout << "min val " << binHeap.getMin() << std::endl;
     binHeap.insert(-5);
-    std::cout<<"min val "<<binHeap.getMin()<<std::endl;
+    std::cout << "min val " << binHeap.getMin() << std::endl;
     return 0;
 }
